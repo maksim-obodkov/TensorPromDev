@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+
+{% block title %}Тензор | Войти{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Введите логин/пароль:</h2>
+
+                {% if error %}
+                <p class="text-danger">Ошибка: {{ error }}</p>
+                {% endif %}
+
+                <form action="{{ url_for('login') }}" method="post">
+                    <div class="form-group">
+                        <label for="username">Логин:</label>
+                        <input type="text" name="username" id="username" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Пароль:</label>
+                        <input type="password" name="password" id="password" class="form-control" required>
+                    </div>
+                    <input class="btn btn-default" type="submit" value="Войти">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
